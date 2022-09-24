@@ -1,0 +1,39 @@
+1. FYI - Spring Cloud Netflix Ribbon - Deprecated
+This is for your information only.
+
+Earlier Spring was providing Spring Cloud Netflix Ribbon to achieve client side load balancing but now its been deprecated and Spring Cloud Load Balancer is being used.
+
+Always go with the latest option available in market.
+
+2. FYI - Zuul API Gateway - Deprecated
+This is for your information only.
+
+Earlier Spring was providing Zuul API Gateway but now its been deprecated and Spring Cloud API Gateway is being used.
+
+3. Always go with the latest option available in market.
+
+Troubleshooting Issue
+If you face error like "java.net.UnknownHostException: failed to resolve...." then add below property in your student and address microservices.
+
+eureka.instance.hostname=localhost
+
+4. Circuit breaker is not used in some cases like payment 
+
+5. FYI - Spring Cloud Hystrix - Deprecated
+This is for your information only.
+
+Earlier Spring was providing Spring Cloud Hystrix but now its been deprecated and Resilience4j is being used.
+
+Always go with the latest option available in market.
+
+6. Slueth and Zipkin
+	Slueth - Distributed tracing (service-name, traceId, spanId) : Traced ID is unique per request across all services and Span ID is uniqure per request in same service
+	Zipkin - Is UI tool (Graphical way) to check distrubted tracing
+
+7. Config server : application.properties or environment profiles files will be maintained at git/.svn and if any changes in configuration or region we can do it SVN so wiithout deployment changes sould be fetched 
+					and these type of changes should be in config server because there is no code change then why to re deploy
+					In short - Centralized properties
+	Microservice properties file name should be bootstrap.properties
+	
+	How to read updated value from properties file without restarting microservices : Add actuator depenedancy , add refresh end point in bootstrap.properties
+	and add @RefreshScope at controller & call microservices end point with actuator/referesh (Post call) and it will show changed values
